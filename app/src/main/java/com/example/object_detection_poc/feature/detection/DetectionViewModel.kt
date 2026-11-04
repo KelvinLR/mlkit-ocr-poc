@@ -19,15 +19,6 @@ class DetectionViewModel : ViewModel() {
         _uiState.update { it.copy(hasCameraPermission = granted) }
     }
 
-    fun onChangeModel() {
-        _uiState.update { current ->
-            val models = current.availableModels
-            val currentIndex = models.indexOf(current.currentModel)
-            val nextIndex = (currentIndex + 1) % models.size
-            current.copy(currentModel = models[nextIndex])
-        }
-    }
-
     fun onTextRecognized(text: String, blockCount: Int) {
         frameCount++
         val now = SystemClock.elapsedRealtime()
@@ -43,10 +34,6 @@ class DetectionViewModel : ViewModel() {
                 current.copy(recognizedText = text, textBlocks = blockCount)
             }
         }
-    }
-
-    fun updateDetectionResults(fps: Int, objectCount: Int) {
-        _uiState.update { it.copy(fps = fps, detectedObjects = objectCount) }
     }
 
     fun setDetecting(detecting: Boolean) {
