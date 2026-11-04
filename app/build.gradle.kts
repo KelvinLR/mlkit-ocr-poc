@@ -44,6 +44,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
     // CameraX core library using the camera2 implementation
     val camerax_version = "1.7.0-alpha02"
     // The following line is optional, as the core library is included indirectly by camera-camera2
